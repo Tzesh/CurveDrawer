@@ -10,3 +10,4 @@ The functions and capabilities of the program are listed below:
 - You can exit the program by clicking on 'Exit' button.
 
   ![Footage](https://i.imgur.com/VcZofqf.png)
+  ![Footage 2](https://imgur.com/C2qgu7X.png)
