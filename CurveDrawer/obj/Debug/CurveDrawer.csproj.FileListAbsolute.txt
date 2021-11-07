@@ -7,3 +7,11 @@ D:\Projects\Programs\CurveDrawer\CurveDrawer\obj\Debug\CurveDrawer.csproj.Genera
 D:\Projects\Programs\CurveDrawer\CurveDrawer\obj\Debug\CurveDrawer.csproj.CoreCompileInputs.cache
 D:\Projects\Programs\CurveDrawer\CurveDrawer\obj\Debug\CurveDrawer.exe
 D:\Projects\Programs\CurveDrawer\CurveDrawer\obj\Debug\CurveDrawer.pdb
+D:\Projects\Programs\CurveDrawer\CurveDrawer\CurveDrawer\bin\Debug\CurveDrawer.exe.config
+D:\Projects\Programs\CurveDrawer\CurveDrawer\CurveDrawer\bin\Debug\CurveDrawer.exe
+D:\Projects\Programs\CurveDrawer\CurveDrawer\CurveDrawer\bin\Debug\CurveDrawer.pdb
+D:\Projects\Programs\CurveDrawer\CurveDrawer\CurveDrawer\obj\Debug\_CurveDrawer.CurveForm.resources
+D:\Projects\Programs\CurveDrawer\CurveDrawer\CurveDrawer\obj\Debug\CurveDrawer.csproj.GenerateResource.cache
+D:\Projects\Programs\CurveDrawer\CurveDrawer\CurveDrawer\obj\Debug\CurveDrawer.csproj.CoreCompileInputs.cache
+D:\Projects\Programs\CurveDrawer\CurveDrawer\CurveDrawer\obj\Debug\CurveDrawer.exe
+D:\Projects\Programs\CurveDrawer\CurveDrawer\CurveDrawer\obj\Debug\CurveDrawer.pdb

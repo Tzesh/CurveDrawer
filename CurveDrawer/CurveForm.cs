@@ -40,23 +40,32 @@ namespace _CurveDrawer
             colors.Add(Color.Red);
             colors.Add(Color.Blue);
 
-            LoadPredefinedColors(cboxLineColor);
-            LoadPredefinedColors(cboxPointColor);
+            LoadColors(cboxLineColor);
+            LoadColors(cboxPointColor);
         }
 
         /// <summary>
         /// Method used to load predefined colors as items to given combobox
         /// </summary>
         /// <param name="cbox">target combobox</param>
-        private void LoadPredefinedColors(ComboBox cbox)
+        private void LoadColors(ComboBox cbox)
         {
-            cbox.Items.Clear();
-
-            foreach (Color color in colors)
+            // adding all the colors into both colors list and combobox
+            foreach (Color color in new ColorConverter().GetStandardValues())
             {
+                if (!this.colors.Contains(color))
+                    this.colors.Add(color);
+            }
+
+            // clearing items of the combobox
+            cbox.Items.Clear();
+            foreach (Color color in this.colors)
+            {
+                // adding colors as their names
                 cbox.Items.Add(color.Name);
             }
 
+            // selecting Black as 'default'
             cbox.SelectedIndex = 0;
         }
 
@@ -99,38 +108,44 @@ namespace _CurveDrawer
                 int result = curve.AddPoint(new Point(LocationX, LocationY));
                 if (result == 1) // if result is 1 that means that everything is OK
                 {
-                    this.lblProgress.Text = String.Format("Point ({0}, {1}) has been added to the curve", LocationX, LocationY);
-                    DrawPoints(curve.GetPoints());
-                    DrawLines(curve.Sort());
+                    this.lblProgress.Text = String.Format("Point ({0}, {1}) has been added to the curve", LocationX, LocationY); // notifying the user
+                    PlotDrawingArea();
                 }
-                else if (result == -1)
+                else if (result == -1) // if result is -1 that means that point is already in the curve
                 {
-                    curve.RemovePoint(new Point(LocationX, LocationY));
-                    this.lblProgress.Text = String.Format("Point ({0}, {1}) has been deleted from the curve", LocationX, LocationY);
-                    DrawPoints(curve.GetPoints());
-                    DrawLines(curve.Sort());
+                    curve.RemovePoint(new Point(LocationX, LocationY)); // then we should remove the point from the curve
+                    this.lblProgress.Text = String.Format("Point ({0}, {1}) has been deleted from the curve", LocationX, LocationY); // notify the user
+                    PlotDrawingArea();
                 }
-                else
+                else // if result is -2 that indices a point with the same x value is already in present
                 {
                     this.lblProgress.Text = String.Format("You cannot define 2 points on the same x coordinate", LocationX, LocationY);
                 }
             }
+            // if right mouse button is clicked
             else if (e.Button == MouseButtons.Right)
             {
-                Point deleted = curve.RemoveLastPoint();
-                if (deleted.x != -1 && deleted.y != -1)
+                Point deleted = curve.RemoveLastPoint(); // removing the last point
+                if (deleted.x != -1 && deleted.y != -1) // if there any point has been deleted
                 {
                     this.lblProgress.Text = String.Format("Point ({0}, {1}) has been deleted from the curve", deleted.x, deleted.y);
-                    DrawPoints(curve.GetPoints());
-                    DrawLines(curve.Sort());
+                    PlotDrawingArea();
                 }
-                else
+                else // when there is not any point to delete
                 {
                     this.lblProgress.Text = "There's nothing left to delete from the curve";
-                    DrawPoints(curve.GetPoints());
-                    DrawLines(curve.Sort());
+                    PlotDrawingArea();
                 }
             }
+        }
+
+        /// <summary>
+        /// Method used for plotting the drawing area
+        /// </summary>
+        private void PlotDrawingArea()
+        {
+            DrawPoints(curve.GetPoints());
+            DrawLines(curve.Sort());
         }
 
         /// <summary>
