@@ -107,6 +107,7 @@ namespace _CurveDrawer
             this.pnlDrawing.Size = new System.Drawing.Size(500, 500);
             this.pnlDrawing.TabIndex = 5;
             this.pnlDrawing.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlDrawing_MouseDown);
+            this.pnlDrawing.MouseLeave += new System.EventHandler(this.pnlDrawing_MouseLeave);
             this.pnlDrawing.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlDrawing_MouseMove);
             // 
             // lblPointerColor

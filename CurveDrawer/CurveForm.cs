@@ -228,5 +228,15 @@ namespace _CurveDrawer
             DrawPoints(curve.GetPoints());
             DrawLines(curve.Sort());
         }
+
+        /// <summary>
+        /// When mouse leaves the drawing area x and y coordinates will be cleared
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pnlDrawing_MouseLeave(object sender, EventArgs e)
+        {
+            this.lblXY.Text = String.Format("X: Y:");
+        }
     }
 }
